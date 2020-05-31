@@ -9,7 +9,7 @@
 # ## 2.1 Preprocessing E-mails
 # To use an SVM to classify emails into Spam v.s. Non-Spam, you first need to convert each email into a vector of features. In this part, you should produce a word indices vector for a given email.
 
-# In[1]:
+# In[2]:
 
 
 import numpy as np
@@ -24,14 +24,14 @@ from sklearn import svm
 from pandas import DataFrame as dframe
 
 
-# In[2]:
+# In[3]:
 
 
 # ==================== Part 1: Email Preprocessing ====================
 # Several functions need to be built to support processEmail, such as vocabList()
 
 
-# In[3]:
+# In[4]:
 
 
 def getVocabList():
@@ -57,19 +57,19 @@ def getVocabList():
 # 
 # Given the vocabulary list, we can now map each word in the preprocessed emails into a list of word indices that contains the index of the word in the vocabulary list. For example, in the sample email, the word \anyone" was first normalized to "anyone" and then mapped onto the index 86 in the vocabulary list.
 
-# In[4]:
+# In[5]:
 
 
 vocabList = getVocabList()
 
 
-# In[5]:
+# In[6]:
 
 
 len(vocabList)
 
 
-# In[6]:
+# In[7]:
 
 
 def processEmail(email_contents):
@@ -135,7 +135,7 @@ def processEmail(email_contents):
     return word_indices
 
 
-# In[7]:
+# In[8]:
 
 
 # First read email sample
@@ -143,14 +143,14 @@ with open('emailSample1.txt') as file:
     email_contents = file.read()
 
 
-# In[8]:
+# In[9]:
 
 
 # Extract features
 word_indices = processEmail(email_contents)
 
 
-# In[9]:
+# In[10]:
 
 
 # Print stats
@@ -166,14 +166,14 @@ print(word_indices)
 # word in the dictionary occurs in the email
 # ![spam_extracted_feat](./img/spam_extracted_feat.jpg)
 
-# In[10]:
+# In[11]:
 
 
 # ==================== Part 2: Feature Extraction ====================
 # This part will convert each email into a vector of feature R^n
 
 
-# In[11]:
+# In[12]:
 
 
 def emailFeatures(word_indices):
@@ -189,19 +189,13 @@ def emailFeatures(word_indices):
     return x
 
 
-# In[12]:
+# In[13]:
 
 
 # Extract features
 file_contents = email_contents
 word_indices = processEmail(file_contents)
 features = emailFeatures(word_indices)
-
-
-# In[13]:
-
-
-pd.options.display.max_rows=None
 
 
 # In[14]:
@@ -419,4 +413,10 @@ p = model.predict(x)
 print('Processed: %s' %filename)
 print('Spam Classification: %d\n' %p)
 print('1 indicates spam, 0 indicates not spam)')
+
+
+# In[ ]:
+
+
+
 
