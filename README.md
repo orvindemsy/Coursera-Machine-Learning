@@ -113,3 +113,6 @@ Week|Corresponding Homework|Content
 9|ex8-Anomaly_Detection_and_Reccomendation|Anomaly Detection & Recommender System
 10|-|Large Scale Machine Learning
 11|-|Application Example: Photo OCR
+
+# Note
+The develop folder contains my experiment of exercise 1 with MATLAB, this might be deleted later, the purpose is to understand how mesh function works
